@@ -10,7 +10,7 @@ BaselineOfDBToolkit >> baseline: spec [
 	spec for: #common
 		do: [ 
 			spec
-				package: 'DBToolkit' with: [ spec requires: #('MaterialDesignLite' 'FAMIXNGSQL') ];
+				package: 'DBToolkit' with: [ spec requires: #('MaterialDesignLite' 'TelescopeCytoscape' 'FAMIXNGSQL') ];
 				package: 'DBToolkit-ConnectionsManager' with: [ spec requires: #('DBToolkit' 'DBConnectionsManager') ];
 				package: 'DBToolkit-Visualizations' with: [ spec requires: #('DBToolkit' 'DBConnectionsManager' TelescopeCytoscape) ].
 			spec
