@@ -40,6 +40,7 @@ DBTRoot class >> initialize [
 		addLibrary: MDLLibrary;
 		addLibrary: DBTLibrary;
 		addLibrary: CYSFileLibrary;
+		addLibrary: PrismLibrary;
 		yourself
 ]
 
@@ -156,6 +157,7 @@ DBTRoot >> renderContentOn: html [
 				class: 'mdl-color-text--grey-600';
 				with: [ html mdlGrid
 						noSpacing;
+						style: 'height: 100%;';
 						with: [ html mdlCell
 								class: 'dbtoolkit';
 								size: 12;

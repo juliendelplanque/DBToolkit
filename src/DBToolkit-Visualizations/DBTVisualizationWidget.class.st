@@ -27,7 +27,8 @@ DBTVisualizationWidget >> model: anObject [
 { #category : #rendering }
 DBTVisualizationWidget >> renderContentOn: html [
 	html render: (MDLTabWidget new
-		addTabNamed: 'Tables dependencies' content: self tableDependenciesVisualization)
+		addTabNamed: 'Tables dependencies' content: self tableDependenciesVisualization;
+		yourself)
 ]
 
 { #category : #'as yet unclassified' }
@@ -36,9 +37,9 @@ DBTVisualizationWidget >> tableDependenciesVisualization [
 		entities: ((self model allWithType: FmxSQLTable) reject: #isStub);
 		property: [ :table | 
 			(table foreignKeyConstraints collect: [ :const | const outgoingForeignKeyColumnReferences collect: [:ref | ref to columnsContainer ] ]) flattened asSet ];
-		widthBlock: [ :each | each references size ];
-		heightBlock: [ :each | each references size ];
+		heightBlock: [ :each | each queryAllIncoming size ];
+		widthBlock: [ :each | each queryAllOutgoing size ];
 		yourself))
-		style: 'height:650px; width:100%;';
+		style: 'height: 80vh;';
 		yourself
 ]
